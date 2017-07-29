@@ -5,23 +5,22 @@ import java.io.PrintStream;
 
 public class FakePrintStream extends PrintStream {
 
-  private static StringBuffer printBuffer = new StringBuffer();
-  
-  
-  public FakePrintStream() {
-    super(new ByteArrayOutputStream());
-  }
+	private static StringBuffer printBuffer = new StringBuffer();
 
-  @Override
-  public void println(String string) {
-    printBuffer.append(string).append("\n");
-  }
+	public FakePrintStream() {
+		super(new ByteArrayOutputStream());
+	}
 
-  public String getPrintedString() {
-    return printBuffer.toString();
-  }
+	@Override
+	public void println(String string) {
+		printBuffer.append(string).append("\n");
+	}
 
-  public void clear() {
-    printBuffer = new StringBuffer();
-  }
+	public String getPrintedString() {
+		return printBuffer.toString();
+	}
+
+	public void clear() {
+		printBuffer = new StringBuffer();
+	}
 }

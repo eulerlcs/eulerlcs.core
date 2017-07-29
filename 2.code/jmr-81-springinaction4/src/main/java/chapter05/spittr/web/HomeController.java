@@ -1,6 +1,6 @@
 package chapter05.spittr.web;
 
-import static org.springframework.web.bind.annotation.RequestMethod.*;
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class HomeController {
 
-  @RequestMapping(method = GET)
-  public String home(Model model) {
-    return "home";
-  }
+	@RequestMapping(method = GET)
+	public String home(Model model) {
+		return "home";
+	}
 
 }

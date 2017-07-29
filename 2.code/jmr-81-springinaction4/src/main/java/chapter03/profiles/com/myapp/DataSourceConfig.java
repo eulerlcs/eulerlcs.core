@@ -11,25 +11,22 @@ import org.springframework.jndi.JndiObjectFactoryBean;
 
 @Configuration
 public class DataSourceConfig {
-  
-  @Bean(destroyMethod = "shutdown")
-  @Profile("dev")
-  public DataSource embeddedDataSource() {
-    return new EmbeddedDatabaseBuilder()
-        .setType(EmbeddedDatabaseType.H2)
-        .addScript("classpath:schema.sql")
-        .addScript("classpath:test-data.sql")
-        .build();
-  }
 
-  @Bean
-  @Profile("prod")
-  public DataSource jndiDataSource() {
-    JndiObjectFactoryBean jndiObjectFactoryBean = new JndiObjectFactoryBean();
-    jndiObjectFactoryBean.setJndiName("jdbc/myDS");
-    jndiObjectFactoryBean.setResourceRef(true);
-    jndiObjectFactoryBean.setProxyInterface(javax.sql.DataSource.class);
-    return (DataSource) jndiObjectFactoryBean.getObject();
-  }
+	@Bean(destroyMethod = "shutdown")
+	@Profile("dev")
+	public DataSource embeddedDataSource() {
+		return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2).addScript("classpath:schema.sql")
+				.addScript("classpath:test-data.sql").build();
+	}
+
+	@Bean
+	@Profile("prod")
+	public DataSource jndiDataSource() {
+		JndiObjectFactoryBean jndiObjectFactoryBean = new JndiObjectFactoryBean();
+		jndiObjectFactoryBean.setJndiName("jdbc/myDS");
+		jndiObjectFactoryBean.setResourceRef(true);
+		jndiObjectFactoryBean.setProxyInterface(javax.sql.DataSource.class);
+		return (DataSource) jndiObjectFactoryBean.getObject();
+	}
 
 }

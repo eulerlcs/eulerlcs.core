@@ -6,9 +6,6 @@ import static org.mockito.Mockito.verify;
 
 import org.junit.Test;
 
-import chapter01.sia.knights.BraveKnight;
-import chapter01.sia.knights.Quest;
-
 public class BraveKnightTest {
 	@Test
 	public void knightShouldEmbarkOnQuest() {

@@ -10,25 +10,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import chapter02.mixedconfig.soundsystem.MediaPlayer;
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:cdplayer-config.xml")
 public class ImportJavaConfigTest {
 
-  @Rule
-  public final StandardOutputStreamLog log = new StandardOutputStreamLog();
+	@Rule
+	public final StandardOutputStreamLog log = new StandardOutputStreamLog();
 
-  @Autowired
-  private MediaPlayer player;
+	@Autowired
+	private MediaPlayer player;
 
-
-  @Test
-  public void play() {
-    player.play();
-    assertEquals(
-        "Playing Sgt. Pepper's Lonely Hearts Club Band by The Beatles\n",
-        log.getLog());
-  }
+	@Test
+	public void play() {
+		player.play();
+		assertEquals("Playing Sgt. Pepper's Lonely Hearts Club Band by The Beatles\n", log.getLog());
+	}
 
 }

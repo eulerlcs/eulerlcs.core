@@ -6,20 +6,16 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 
-import chapter03.externals.com.soundsystem.BlankDisc;
-
 @Configuration
 @PropertySource("classpath:/com/soundsystem/app.properties")
 public class EnvironmentConfig {
 
-  @Autowired
-  Environment env;
-  
-  @Bean
-  public BlankDisc blankDisc() {
-    return new BlankDisc(
-        env.getProperty("disc.title"),
-        env.getProperty("disc.artist"));
-  }
-  
+	@Autowired
+	Environment env;
+
+	@Bean
+	public BlankDisc blankDisc() {
+		return new BlankDisc(env.getProperty("disc.title"), env.getProperty("disc.artist"));
+	}
+
 }

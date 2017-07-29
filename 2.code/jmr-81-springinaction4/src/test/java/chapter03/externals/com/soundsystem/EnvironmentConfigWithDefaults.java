@@ -5,19 +5,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 
-import chapter03.externals.com.soundsystem.BlankDisc;
-
 @Configuration
 public class EnvironmentConfigWithDefaults {
 
-  @Autowired
-  Environment env;
-  
-  @Bean
-  public BlankDisc blankDisc() {
-    return new BlankDisc(
-        env.getProperty("disc.title", "Rattle and Hum"),
-        env.getProperty("disc.artist", "U2"));
-  }
-  
+	@Autowired
+	Environment env;
+
+	@Bean
+	public BlankDisc blankDisc() {
+		return new BlankDisc(env.getProperty("disc.title", "Rattle and Hum"), env.getProperty("disc.artist", "U2"));
+	}
+
 }
