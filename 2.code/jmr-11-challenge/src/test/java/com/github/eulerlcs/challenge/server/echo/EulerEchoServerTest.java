@@ -20,9 +20,8 @@ import com.github.eulerlcs.challenge.server.core.EulerHttpsServer;
 
 public class EulerEchoServerTest {
 	private EulerEchoServer target;
-	private final int port = 8921;
-	private final String keystore = "euler01.ks";
-	// private final String keystore = "cacerts";
+	private final int port = 443;
+	private final String keystore = "euler03.ks";
 	private final String pwd = "eulereuler";
 
 	private void ini() {
@@ -42,6 +41,8 @@ public class EulerEchoServerTest {
 		Thread.sleep(3 * 1000);
 
 		if (1 == 2) {
+			// javax.net.ssl.SSLHandshakeException: java.security.cert.CertificateException:
+			// No subject alternative names present
 			// URLのホスト名と証明書のサーバー名が不一致でもエラーにしない
 			HttpsURLConnection.setDefaultHostnameVerifier(new HostnameVerifier() {
 				@Override
@@ -53,6 +54,10 @@ public class EulerEchoServerTest {
 		}
 
 		if (1 == 2) {
+			// javax.net.ssl.SSLHandshakeException:
+			// sun.security.validator.ValidatorException: PKIX path building failed:
+			// sun.security.provider.certpath.SunCertPathBuilderException: unable to find
+			// valid certification path to requested target
 			InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream(keystore);
 			SSLContext sslContext = EulerHttpsServer.getSSLContext(in, pwd);
 
@@ -60,7 +65,7 @@ public class EulerEchoServerTest {
 			HttpsURLConnection.setDefaultSSLSocketFactory(sslContext.getSocketFactory());
 		}
 
-		URL url = new URL("https://127.0.0.1:" + port);
+		URL url = new URL("https://sj-pc:" + port);
 		// URL url = new URL("https://gaohaoyang.github.io/");
 		// URL url = new URL("https://www.yahoo.com/");
 

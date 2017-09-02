@@ -18,10 +18,14 @@ import org.slf4j.LoggerFactory;
 import com.github.eulerlcs.challenge.server.core.EulerHttpsServer;
 
 /**
+ * point: CN=server name
+ * 
  * <pre>
- * keytool -genkey -keystore euler01.ks -alias euler -storepass eulereuler
- * keytool -export -keystore euler01.ks -alias euler -storepass eulereuler -file euler01.cer
- * keytool -import -keystore euler01.ks -file euler01.cer
+ * keytool -genkeypair -keystore euler03.ks -alias euler03 -storepass xxxxxx -keypass xxxxxx -dname "CN=sj-pc, OU=test Project, O=test\, Inc., L=Chuo-ku, ST=Tokyo, C=JP" -validity 730
+ * keytool -export     -keystore euler03.ks -alias euler03 -storepass xxxxxx -file euler03.cer
+ * keytool -import -file euler03.cer -alias euler03 -storepass changeit -keystore "%JAVA_HOME%\jre\lib\security\cacerts"
+ * keytool -list  -v -storepass changeit -keystore "%JAVA_HOME%\jre\lib\security\cacerts"
+ * keytool -delete -alias euler01 -storepass changeit -keystore "%JAVA_HOME%\jre\lib\security\cacerts"
  * </pre>
  */
 public class EulerEchoServer implements EchoServer {
