@@ -2,11 +2,11 @@
 
 package com.github.eulerlcs.jmr.challenge.systemrules;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.ExpectedSystemExit;
+
+import com.github.eulerlcs.challenge.systemrules.AppWithExit;
 
 public class AppWithExitTest {
 	@Rule
@@ -28,12 +28,12 @@ public class AppWithExitTest {
 	public void writesMessage() {
 		exit.expectSystemExitWithStatus(1);
 		// todo v1.16.1
-//	    exit.checkAssertionAfterwards(new Assertion() {
-//	      public void checkAssertion() {
-//	        assertEquals("exit ...", AppWithExit.message);
-//	      }
-//	    });
-	    AppWithExit.doSomethingAndExit();
+		// exit.checkAssertionAfterwards(new Assertion() {
+		// public void checkAssertion() {
+		// assertEquals("exit ...", AppWithExit.message);
+		// }
+		// });
+		AppWithExit.doSomethingAndExit();
 	}
 
 	@Test

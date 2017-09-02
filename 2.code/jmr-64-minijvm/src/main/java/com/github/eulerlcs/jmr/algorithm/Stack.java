@@ -1,7 +1,7 @@
 package com.github.eulerlcs.jmr.algorithm;
 
 public class Stack {
-	private ArrayList elementData = new ArrayList();
+	private ArrayList<?> elementData = new ArrayList<Object>();
 
 	public void push(Object o) {
 	}

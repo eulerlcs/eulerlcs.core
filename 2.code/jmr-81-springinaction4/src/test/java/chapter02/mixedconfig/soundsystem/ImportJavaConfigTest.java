@@ -23,7 +23,7 @@ public class ImportJavaConfigTest {
 	@Test
 	public void play() {
 		player.play();
-		assertEquals("Playing Sgt. Pepper's Lonely Hearts Club Band by The Beatles\n", log.getLog());
+		assertEquals("Playing Sgt. Pepper's Lonely Hearts Club Band by The Beatles\r\n", log.getLog());
 	}
 
 }
