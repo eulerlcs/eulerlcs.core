@@ -2,20 +2,15 @@ package com.github.eulerlcs.challenge.server.echo;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Date;
 
 import org.apache.http.HttpException;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.entity.StringEntity;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.HttpRequestHandler;
 import org.apache.http.protocol.UriHttpRequestHandlerMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import com.github.eulerlcs.challenge.server.core.EulerHttpsServer;
+import com.github.eulerlcs.challenge.server.core.EulerServer;
 
 /**
  * point: CN=server name
@@ -28,37 +23,19 @@ import com.github.eulerlcs.challenge.server.core.EulerHttpsServer;
  * keytool -delete -alias euler01 -storepass changeit -keystore "%JAVA_HOME%\jre\lib\security\cacerts"
  * </pre>
  */
-public class EulerEchoServer implements EchoServer {
-	private final static Logger log = LoggerFactory.getLogger(EulerEchoServer.class);
-	private final static String SELF_NAME = EulerEchoServer.class.getSimpleName();
-
-	private EulerHttpsServer server;
-
-	public EulerEchoServer(InputStream keystore, String password, int port) {
+public class EulerEchoServer extends EulerServer implements EchoServer {
+	public void create(int port, InputStream keystore, String password) {
 		HttpRequestHandler handler = new HttpRequestHandler() {
 			@Override
 			public void handle(HttpRequest request, HttpResponse response, HttpContext context)
 					throws HttpException, IOException {
-				String body = "welcome! " + "at " + new Date() + " in " + SELF_NAME;
-				response.setStatusCode(HttpStatus.SC_OK);
-				response.setEntity(new StringEntity(body));
-
-				log.info(body);
+				handleAll(request, response, context);
 			}
 		};
 
 		UriHttpRequestHandlerMapper handlerMapper = new UriHttpRequestHandlerMapper();
 		handlerMapper.register("*", handler);
-		server = new EulerHttpsServer(keystore, password, port, handlerMapper);
-	}
 
-	@Override
-	public void start() {
-		server.start();
-	}
-
-	@Override
-	public void shutdown() {
-		server.shutdown();
+		create(port, handlerMapper, keystore, password);
 	}
 }
