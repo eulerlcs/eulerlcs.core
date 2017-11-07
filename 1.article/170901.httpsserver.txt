@@ -1,0 +1,28 @@
+** keytool usage
+	http://www.cnblogs.com/liaojie970/p/4916602.html
+
+	http://www.cnblogs.com/liaojie970/p/4921575.html
+	http://apis.jpn.ph/fswiki/wiki.cgi?page=Java%2Fkeytool#p9
+	https://my.oschina.net/xinxingegeya/blog/267513
+
+Ç®ÇÍÇ®ÇÍèÿñæèë
+	https://shinodogg.com/?p=3849
+
+	http://ttshiko.hatenablog.jp/entry/20121103/1351927402
+
+	System.setProperty("javax.net.ssl.trustStore", "E:\\jssecacerts");
+	System.setProperty("javax.net.ssl.trustStorePassword", "changeit");
+sample
+	http://www.cnblogs.com/zhangzb/p/5200418.html
+
+** point cn=server name
+keytool -genkeypair -keystore euler03.ks -alias euler03 -storepass eulereuler -keypass eulereuler -dname "CN=sj-pc, OU=test Project, O=test\, Inc., L=Chuo-ku, ST=Tokyo, C=JP" -validity 730
+
+keytool -export     -keystore euler03.ks -alias euler03 -storepass eulereuler -file euler03.cer
+
+** PKIX path building failed
+keytool -import -file euler03.cer -alias euler03 -storepass changeit -keystore "%JAVA_HOME%\jre\lib\security\cacerts"
+
+keytool -list  -v -storepass changeit -keystore "%JAVA_HOME%\jre\lib\security\cacerts"
+
+keytool -delete -alias euler01 -storepass changeit -keystore "%JAVA_HOME%\jre\lib\security\cacerts"

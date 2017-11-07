@@ -67,6 +67,12 @@
 				<artifactId>httpcore</artifactId>
 				<version>4.4.6</version>
 			</dependency>
+			<!-- now end of life -->
+			<dependency>
+				<groupId>commons-httpclient</groupId>
+				<artifactId>commons-httpclient</artifactId>
+				<version>3.1</version>
+			</dependency>
 			<dependency>
 				<groupId>org.apache.camel</groupId>
 				<artifactId>camel-stream</artifactId>

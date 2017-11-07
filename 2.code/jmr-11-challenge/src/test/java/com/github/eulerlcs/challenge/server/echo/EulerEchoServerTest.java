@@ -37,7 +37,7 @@ public class EulerEchoServerTest {
 			}
 		};
 
-		server.create(443, in, "password");
+		server.create(443, in, "eulereuler");
 		server.start();
 		Thread.sleep(3 * 1000);
 	}
