@@ -44,6 +44,7 @@ public class EnvironmentInjectionTest {
 
 	public static class InjectFromPropertiesWithRequiredProperties {
 
+		@SuppressWarnings("resource")
 		@Test(expected = BeanCreationException.class)
 		public void assertBlankDiscProperties() {
 			new AnnotationConfigApplicationContext(EnvironmentConfigWithRequiredProperties.class);

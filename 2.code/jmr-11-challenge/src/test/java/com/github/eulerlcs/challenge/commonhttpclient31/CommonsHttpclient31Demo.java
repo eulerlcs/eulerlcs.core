@@ -10,12 +10,14 @@ import org.apache.commons.httpclient.MultiThreadedHttpConnectionManager;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.params.HttpConnectionManagerParams;
 import org.apache.commons.httpclient.params.HttpMethodParams;
+import org.junit.Test;
 
 public class CommonsHttpclient31Demo {
 	private static String url = "http://www.apache.org/";
 	private static String urlNg = "http://167.10.0.45/";
 
-	public static void main(String[] args) {
+	@Test
+	public void test() {
 		MultiThreadedHttpConnectionManager connectionManager = new MultiThreadedHttpConnectionManager();
 		connectionManager.closeIdleConnections(20 * 4000);
 
