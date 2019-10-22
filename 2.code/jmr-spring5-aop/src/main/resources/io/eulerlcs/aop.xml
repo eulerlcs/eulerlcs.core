@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	                    http://www.springframework.org/schema/beans/spring-beans.xsd
+	                    http://www.springframework.org/schema/context 
+	                    http://www.springframework.org/schema/context/spring-context.xsd
+	                    http://www.springframework.org/schema/aop 
+	                    http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- DI注解解析器 -->
+	<context:annotation-config />
+
+
+	<!-- IOC注解解析器 -->
+	<context:component-scan
+		base-package="io.eulerlcs" />
+	<context:property-placeholder
+		location="classpath:io/eulerlcs/eulerlcs.properties" />
+
+	<!--AOP注解解析器 -->
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
+
+<!--
+	 	<aop:config proxy-target-class="true">
+		<aop:aspect ref="transactionManager">
+			<aop:pointcut id="txPoint"
+				expression="execution( * io.eulerlcs.service.*Service.*(..))" />
+
+			<aop:before method="begin" pointcut-ref="txPoint" />
+			<aop:after-returning method="commit"
+				pointcut-ref="txPoint" />
+			<aop:after-throwing method="rollback"
+				pointcut-ref="txPoint" />
+		</aop:aspect>
+	</aop:config>
+ -->
+ </beans>

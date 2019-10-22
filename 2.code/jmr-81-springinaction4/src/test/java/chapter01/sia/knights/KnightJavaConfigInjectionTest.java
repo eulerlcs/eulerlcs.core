@@ -13,7 +13,7 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = KnightConfig.class, loader = AnnotationConfigContextLoader.class)
 public class KnightJavaConfigInjectionTest {
-
+	
 	@Autowired
 	Knight knight;
 
