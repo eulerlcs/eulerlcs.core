@@ -6,16 +6,12 @@ import java.lang.reflect.Proxy;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import io.eulerlcs.tx.TransactionManager;
 
 @Component
 public class EmployeeServiceJdkProxy implements InvocationHandler {
-
-	@Autowired
-	private ApplicationContext ctx;
 
 	@Autowired
 	private TransactionManager tx;
