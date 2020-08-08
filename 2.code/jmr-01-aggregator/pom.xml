@@ -8,14 +8,14 @@
 	<description>eulerlcs master java road aggregator</description>
 
 	<modules>
-		<module>../jmr-02-parent</module>
-		<module>../jmr-11-challenge</module>
-		<module>../jmr-61-collection</module>
-		<module>../jmr-62-litestruts</module>
-		<module>../jmr-63-download</module>
-		<module>../jmr-64-minijvm</module>
-		<module>../jmr-71-regex</module>
-		<module>../jmr-81-springinaction4</module>
-		<module>../jpa-hello</module>
+		<module>jmr-02-parent</module>
+ 		<module>jmr-11-challenge</module>
+		<module>jmr-61-collection</module>
+ 		<module>jmr-62-litestruts</module>
+		<module>jmr-63-download</module>
+		<module>jmr-64-minijvm</module>
+		<module>jmr-71-regex</module>
+		<module>jmr-81-springinaction4</module>
+		<module>jpa-hello</module>
 	</modules>
 </project>
