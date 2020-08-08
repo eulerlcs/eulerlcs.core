@@ -16,6 +16,8 @@
 		<module>jmr-64-minijvm</module>
 		<module>jmr-71-regex</module>
 		<module>jmr-81-springinaction4</module>
-		<module>jpa-hello</module>
+		<module>jmr-82-spring5-aop</module>
+		<module>jmr-83-spring5-mvc</module>
+		<module>jmr-91-jpa-hello</module>
 	</modules>
 </project>

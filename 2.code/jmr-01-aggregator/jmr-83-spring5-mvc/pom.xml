@@ -8,7 +8,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../jmr-02-parent/pom.xml</relativePath>
 	</parent>
-	<artifactId>jmr-spring5-mvc</artifactId>
+	<artifactId>jmr-83-spring5-mvc</artifactId>
 	<packaging>war</packaging>
 	<description>eulerlcs master java road spring5 mvc 191022</description>
 
