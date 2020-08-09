@@ -8,7 +8,6 @@ public class SomeServiceImpl implements SomeService {
 	@Override
 	public String find(String input) {
 		SomeDaoImpl someDaoImpl = new SomeDaoImpl();
-		// TODO Auto-generated method stub
 		return someDaoImpl.find(input);
 	}
 

@@ -10,5 +10,6 @@
   <modules>
     <module>s5-02-parent</module>
     <module>s5-03-ioc-hello</module>
+    <module>s5-04-junit5</module>
   </modules>
 </project>
