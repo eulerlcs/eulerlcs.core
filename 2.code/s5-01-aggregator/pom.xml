@@ -11,5 +11,7 @@
     <module>s5-02-parent</module>
     <module>s5-03-ioc-hello</module>
     <module>s5-04-junit5</module>
+    <module>s5-05-complex-object</module>
+    <module>s5-11-aop-hello</module>
   </modules>
 </project>
