@@ -1,0 +1,26 @@
+services:
+  pg1801:
+    image: postgres:18
+    container_name: pg1801
+    hostname: pg1801
+    restart: on-failure:2
+    shm_size: 128mb
+    environment:
+      TZ: 'Asia/Tokyo'
+      POSTGRES_DB: vectordb
+      POSTGRES_USER: ${USER_NAME}
+      POSTGRES_PASSWORD: ${USER_PASS}
+#      POSTGRES_HOST_AUTH_METHOD: trust
+    volumes:
+      - ./data:/var/lib/postgresql
+      - ./initDB:/docker-entrypoint-initdb.d
+    ports:
+      - 5432:5432
+
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: unless-stopped
+    ports:
+      - 8080:8080
